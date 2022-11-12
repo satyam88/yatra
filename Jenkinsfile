@@ -1,4 +1,3 @@
-#Pipeline as code
 pipeline {
 
     options {
