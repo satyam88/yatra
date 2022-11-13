@@ -4,6 +4,6 @@ MAINTAINER email2satyam88@gmail.com
 # copy war file on to container
 COPY ./target/yatra.war /usr/local/tomcat/webapps
 EXPOSE  8080
-USER linuxacademy
+USER yatra
 WORKDIR /usr/local/tomcat/webapps
 CMD ["catalina.sh","run"]
