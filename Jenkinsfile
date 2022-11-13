@@ -36,7 +36,6 @@ pipeline {
                 sh 'mvn clean test'
             }
         }
-
         stage('Code Package') {
             steps {
                 echo 'Creating War Artifact'
