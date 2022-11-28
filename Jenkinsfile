@@ -4,7 +4,7 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
     }
 
-    agent any
+    agent { label 'stackholderAjava' }
 
     tools {
         maven 'maven_3.8.6'
@@ -36,7 +36,6 @@ pipeline {
                 sh 'mvn clean test'
             }
         }
-
         stage('Code Package') {
             steps {
                 echo 'Creating War Artifact'
