@@ -48,8 +48,8 @@ pipeline {
         stage('Building & Tagging Docker Image') {
             steps {
                 echo 'Starting Building Docker Image'
-                sh 'docker build -t satyam88/cowinapp .'
-                sh 'docker build -t cowinapp .'
+                sh 'docker build -t satyam88/yatra-ms .'
+                sh 'docker build -t yatra-ms .'
                 echo 'Completed  Building Docker Image'
             }
         }
