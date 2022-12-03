@@ -36,7 +36,12 @@ pipeline {
                 sh 'mvn clean test'
             }
         }
-
+        stage('Sonar Code Analysis') {
+            steps {
+                echo 'Creating War Artifact'
+                sh 'java -version'
+            }
+        }
         stage('Code Package') {
             steps {
                 echo 'Creating War Artifact'
@@ -89,7 +94,7 @@ pipeline {
            }
         }
 
-         /**
+
         stage('Upload the docker Image to Nexus') {
            steps {
               script {
@@ -101,7 +106,7 @@ pipeline {
                  }
               }
             }
-        } **/
+        }
 
         stage('Deploy App to K8s Cluster') {
             steps {
