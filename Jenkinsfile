@@ -63,6 +63,7 @@ pipeline {
                  echo "Push Docker Image to DockerHub : In Progress"
                  sh 'docker push satyam88/yatra-ms:latest'
                  echo "Push Docker Image to DockerHub : In Progress"
+                 whoami
                  }
               }
             }
