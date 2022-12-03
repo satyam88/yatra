@@ -50,7 +50,7 @@ pipeline {
             }
         }
 
-        stage('Building & Tagging Docker Image') {
+        stage('Building  Docker Image') {
             steps {
                 echo 'Starting Building Docker Image'
                 sh 'docker build -t satyam88/yatra-ms .'
@@ -59,7 +59,21 @@ pipeline {
             }
         }
 
+        stage('Tagging Docker Image') {
+            steps {
+                echo 'Creating War Artifact'
+                sh 'java -version'
+                sh 'mvn clean package'
+            }
+        }
 
+        stage('Docker Image Scanning') {
+            steps {
+                echo 'Creating War Artifact'
+                sh 'java -version'
+                sh 'mvn clean package'
+            }
+        }
         stage(' Docker push to Docker Hub') {
            steps {
               script {
