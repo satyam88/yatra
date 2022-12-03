@@ -58,10 +58,10 @@ pipeline {
         stage(' Docker push to Docker Hub') {
            steps {
               script {
-                 withCredentials([string(credentialsId: 'dockerhubC', variable: 'dockerhubC')]){
-                 sh 'docker login docker.io -u satyam88 -p ${dockerhubC}'
+                 withCredentials([string(credentialsId: 'dockerhubCred', variable: 'dockerhubCred')]){
+                 sh 'docker login docker.io -u satyam88 -p ${dockerhubCred}'
                  echo "Push Docker Image to DockerHub : In Progress"
-                 sh 'docker push satyam88/cowinapp:latest'
+                 sh 'docker push satyam88/yatra-ms:latest'
                  echo "Push Docker Image to DockerHub : In Progress"
                  }
               }
