@@ -88,7 +88,7 @@ pipeline {
             }
         }
 
-
+/**
         stage(' Docker Image Push to Amazon ECR') {
            steps {
               script {
@@ -107,7 +107,7 @@ pipeline {
               }
            }
         }
-
+**\
 
         stage('Upload the docker Image to Nexus') {
            steps {
