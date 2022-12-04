@@ -88,7 +88,6 @@ pipeline {
             }
         }
 
-/**
         stage(' Docker Image Push to Amazon ECR') {
            steps {
               script {
@@ -107,7 +106,6 @@ pipeline {
               }
            }
         }
-**\
 
         stage('Upload the docker Image to Nexus') {
            steps {
@@ -116,7 +114,7 @@ pipeline {
                  sh 'docker login http://52.66.77.53:8085/repository/yatra-ms/ -u admin -p ${PASSWORD}'
                  echo "Push Docker Image to Nexus : In Progress"
                  sh 'docker tag yatra-ms 52.66.77.53:8085/yatra-ms:latest'
-                 sh 'docker push 52.66.77.53:8085/repository/yatra-ms'
+                 sh 'docker push 52.66.77.53:8085/yatra-ms'
                  echo "Push Docker Image to Nexus : Completed"
                  }
               }
