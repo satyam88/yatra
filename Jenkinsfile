@@ -41,7 +41,7 @@ pipeline {
                 scannerHome = tool 'sonarqube-scanner'
             }
             steps {
-                withSonarQubeEnv('sonarqube-webhook') {
+                withSonarQubeEnv('sonarqubeonaws') {
                     sh "${scannerHome}/bin/sonar-scanner"
                 }
                 timeout(time: 10, unit: 'MINUTES') {
