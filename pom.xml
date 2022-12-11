@@ -12,6 +12,7 @@
 	<artifactId>yatra</artifactId>
 	<version>v0.1</version>
 	<name>yatra</name>
+	<packaging>war</packaging>
 
 	<description>Demo project for Spring Boot</description>
 	<properties>

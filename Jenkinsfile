@@ -36,10 +36,17 @@ pipeline {
                 sh 'mvn clean test'
             }
         }
-        stage('Sonar Code Analysis') {
+        stage('Sonarqube Code Analysis') {
+            environment {
+                scannerHome = tool 'sonarqube-scanner'
+            }
             steps {
-                echo 'Creating War Artifact'
-                sh 'java -version'
+                withSonarQubeEnv('sonarqube') {
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
+                timeout(time: 10, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
             }
         }
         stage('Code Package') {
