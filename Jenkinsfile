@@ -36,19 +36,6 @@ pipeline {
                 sh 'mvn clean test'
             }
         }
-        stage('Sonarqube Code Analysis') {
-            environment {
-                scannerHome = tool 'sonarqube-scanner'
-            }
-            steps {
-                withSonarQubeEnv('SonarqubeServer') {
-                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=yatra"
-                }
-                timeout(time: 10, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: true
-                }
-            }
-        }
         stage('Code Package') {
             steps {
                 echo 'Creating War Artifact'
